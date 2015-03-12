@@ -25,7 +25,7 @@ function getDevices(callback) {
   var http =  require('http');
   var options = {
     hostname: apiUrl,
-    path: '/devices'
+    path: '/devices' 
   };
   var req = http.get(apiUrl+'devices', function(res) {
    console.log("request");
