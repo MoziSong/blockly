@@ -1,21 +1,8 @@
-/*var http = require("http");
-var fs = require('fs');
-var port = 8080;
-
-var server = http.createServer(function(req, res) {
-    fs.readFile("mozi_demo.html", 'utf8', function(err, text){
-      console.log(text);
-      res.setHeader("Content-Type", "text/html");
-      res.end(text);
-    });
-});
-server.listen(port);
-*/
 var express = require('express');
 var app = express();
 var fs = require('fs');
 app.get('/', function(req, res) {
-  fs.readFile("mozi_demo.html", 'utf8', function(err, text){
+  fs.readFile("demo.html", 'utf8', function(err, text){
       res.setHeader("Content-Type", "text/html");
       res.end(text);
     });
@@ -40,7 +27,7 @@ function getDevices(callback) {
     hostname: apiUrl,
     path: '/devices'
   };
-  var req = http.get('http://localhost:3000/api/devices', function(res) {
+  var req = http.get(apiUrl+'devices', function(res) {
    console.log("request");
     res.setEncoding('utf8');
     res.on('data', function (chunk) {
